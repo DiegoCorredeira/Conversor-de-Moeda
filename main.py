@@ -11,11 +11,13 @@ while True:
         valor = int(input('Informe o valor em real:'))
         cotacao = cotacoes.cotacao_dolar()
         resultado = valor / cotacao
-        print(f'R$ {valor:.2f} em USD é ${resultado:.2f}')
+        print(f'R$ {valor} em USD é ${resultado:.2f}')
         break
     if option == 2:
         valor = int(input('Informe o valor em real: '))
         cotacao = cotacoes.cotacao_euro()
         resultado = valor / cotacao
-        print(f'R$ {valor:.2f} em EUR é €{resultado:.2f}')
+        print(f'R$ {valor} em EUR é €{resultado:.2f}')
         break
+    if option  not in [1, 2]:
+        print('Opção invalida! Tente novamente!')

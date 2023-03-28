@@ -1,4 +1,11 @@
 import cotacoes
+'''
+Proximos passos:  
+Perguntar qual é a moeda inicial / final
+Adicionar mais moedas 
+Trocar a API para a da Open Exchange / ou nao
+
+'''
 while True:
     print("***********************")
     print(" CONVERSOR DE MOEDAS ")

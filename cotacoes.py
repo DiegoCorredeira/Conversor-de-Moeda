@@ -1,21 +1,27 @@
 import requests
 from decimal import Decimal, ROUND_HALF_UP
 
-peso_ars =  21653
-dolar_usd = 10813
-euro_eur = 21619
-
+euro = 'EUR'
+dolar = 'USD'
+iene = 'JPY'
 def cotacao_dolar():
-    url = f"https://api.bcb.gov.br/dados/serie/bcdata.sgs.{dolar_usd}/dados/ultimos/1?formato=json"
-    response = requests.get(url)
-    cotacao = response.json()[0]['valor']
-    arredondamento_cotacao = Decimal(cotacao)
-    return arredondamento_cotacao
-
+    response = requests.get(f"https://economia.awesomeapi.com.br/json/last/{dolar}")
+    if response.status_code == 200:
+        data = response.json()
+        high =  float(data['USDBRL']['high'])
+        return high
 
 def cotacao_euro():
-    url = "https://api.bcb.gov.br/dados/serie/bcdata.sgs.{euro_eur}/dados/ultimos/1?formato=json"
-    response = requests.get(url)
-    cotacao = response.json()[0]['valor']
-    arredondamento_cotacao = Decimal(cotacao)
-    return arredondamento_cotacao
+        response = requests.get(f'https://economia.awesomeapi.com.br/json/last/{euro}')
+        if response.status_code == 200:
+            data = response.json()
+            high =  float(data['EURBRL']['high'])
+            return high
+cotacao_euro()
+
+def cotacao_iene():
+        response = requests.get(f'https://economia.awesomeapi.com.br/json/last/{iene}')
+        if response.status_code == 200:
+            data = response.json()
+            high =  float(data['JPYBRL']['high'])
+            return high

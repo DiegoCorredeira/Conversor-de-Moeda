@@ -3,7 +3,6 @@ import cotacoes
 Proximos passos:  
 Perguntar qual é a moeda inicial / final
 Adicionar mais moedas 
-Trocar a API para a da Open Exchange / ou nao
 
 '''
 while True:
@@ -13,18 +12,27 @@ while True:
 
     option = int(input('Informe a moeda para qual deseja efetuar a conversão:\n'
                        '1 - Dolar\n'
-                       '2 - Euro\n'))
+                       '2 - Euro\n'
+                       '3 - Iene\n'))
+
+    # msg = f'R$ {valor:.2f} em USD é ${resultado:.2f}'
     if option == 1:
-        valor = int(input('Informe o valor em real:'))
+        valor = float(input('Informe o valor em real: '))
         cotacao = cotacoes.cotacao_dolar()
         resultado = valor / cotacao
-        print(f'R$ {valor} em USD é ${resultado:.2f}')
-        break
-    if option == 2:
-        valor = int(input('Informe o valor em real: '))
+        msg = f'R$ {valor:.2f} em USD é ${resultado:.2f}'
+        print(msg)
+    elif option == 2:
+        valor = float(input('Informe o valor em real: '))
         cotacao = cotacoes.cotacao_euro()
         resultado = valor / cotacao
-        print(f'R$ {valor} em EUR é €{resultado:.2f}')
-        break
-    if option  not in [1, 2]:
+        msg = f'R$ {valor:.2f} em EUR é €{resultado:.2f}'
+        print(msg)
+    elif option == 3:
+        valor = float(input('Informe o valor em real: '))
+        cotacao = cotacoes.cotacao_iene()
+        resultado = valor / cotacao
+        msg = f'R$ {valor:.2f} em JPY é ¥{resultado:.2f}'
+        print(msg)
+    if option not in [1, 2, 3]:
         print('Opção invalida! Tente novamente!')

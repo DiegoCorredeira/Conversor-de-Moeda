@@ -1,5 +1,4 @@
 import requests
-from decimal import Decimal, ROUND_HALF_UP
 
 euro = 'EUR'
 dolar = 'USD'
@@ -25,3 +24,5 @@ def cotacao_iene():
             data = response.json()
             high =  float(data['JPYBRL']['high'])
             return high
+
+

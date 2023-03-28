@@ -1,10 +1,5 @@
 import cotacoes
-'''
-Proximos passos:  
-Perguntar qual é a moeda inicial / final
-Adicionar mais moedas 
 
-'''
 while True:
     print("***********************")
     print(" CONVERSOR DE MOEDAS ")

@@ -1,4 +1,5 @@
 import requests
+from decimal import Decimal, ROUND_HALF_UP
 
 peso_ars =  21653
 dolar_usd = 10813
@@ -8,7 +9,7 @@ def cotacao_dolar():
     url = f"https://api.bcb.gov.br/dados/serie/bcdata.sgs.{dolar_usd}/dados/ultimos/1?formato=json"
     response = requests.get(url)
     cotacao = response.json()[0]['valor']
-    arredondamento_cotacao = round(float(cotacao), 2)
+    arredondamento_cotacao = Decimal(cotacao)
     return arredondamento_cotacao
 
 
@@ -16,5 +17,5 @@ def cotacao_euro():
     url = "https://api.bcb.gov.br/dados/serie/bcdata.sgs.{euro_eur}/dados/ultimos/1?formato=json"
     response = requests.get(url)
     cotacao = response.json()[0]['valor']
-    arredondamento_cotacao = round(float(cotacao),2)
+    arredondamento_cotacao = Decimal(cotacao)
     return arredondamento_cotacao
